@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishank BS - Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff7f50, #ff4500);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff4500, #ff7f50);
+            color: white;
+            font-weight: 600;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff7f50, #ff4500);
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            background-color: rgba(51, 51, 51, 0.9);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ff7f50;
+            transform: scale(1.1);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ff4500;
+        }
+
+        /* About Section */
+        #about img {
+            width: 220px;
+            border-radius: 50%;
+            border: 5px solid #ff4500;
+            transition: transform 0.3s ease;
+        }
+        
+        #about img:hover {
+            transform: scale(1.1);
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        
+
+        /* Skills */
+        #skills ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #skills li {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        #skills li:hover {
+            background: #ff4500;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            margin: 15px 0;
+            color: #ff4500;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            padding: 0 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #ff4500;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .project-card a:hover {
+            background: #ff7f50;
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        #contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #contact input,
+        #contact textarea,
+        #contact button {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: #ff4500;
+            box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+        }
+
+        #contact button {
+            background: #ff4500;
+            color: white;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        #contact button:hover {
+            background: #ff7f50;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Dishank BS</h1>
+        <p>Computer Science Engineer | Passionate Developer</p>
+        <a href="#about" class="btn">Learn More</a>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <img src="WhatsApp Image 2024-12-12 at 22.34.28_22d60b9a.jpg" alt="Dishank's photo">
+        <p>I am Dishank BS, a dedicated developer with a passion for coding, problem-solving, and gaming. I enjoy building projects, exploring technologies, and pushing boundaries in software development.</p>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Unity Game Development</li>
+            <li>Free Fire & Clash of Clans Enthusiast</li>
+            <li>C++ Programming</li>
+            <li>Microsoft Office</li>
+        </ul>
+    </section>
+
+     <!-- Projects Section -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Portfolio Website</h3>
+            <p>A beautiful portfolio showcasing my skills and projects.</p>
+            <a href="#">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Unity Game</h3>
+            <p>A fun and engaging game developed using Unity Engine.</p>
+            
+            <!-- Video Player -->
+            <video width="320" height="240" controls>
+                <source src="WhatsApp Video 2024-12-07 at 13.26.27_d07ae7e4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- View Project Link -->
+            <div>
+                <a href="WhatsApp Video 2024-12-07 at 13.26.27_d07ae7e4.mp4" target="_blank">
+                    View Project
+                </a>
+            </div>
+        </div>
+        
+        
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Phone:</strong> <a href="tel:+917337852332">7337852332</a></p>
+            <p><strong>Email:</strong> <a href="mailto:dishankbs04@gmail.com">dishankbs04@gmail.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dishank BS. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
